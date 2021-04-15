@@ -24,7 +24,7 @@ Or install it yourself as:
 
 For example:
 
-    $ pitle do epub,pdf,mobi
+    $ pitle -e epub,pdf,mobi
 
 ## Development
 
