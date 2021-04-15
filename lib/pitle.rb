@@ -65,14 +65,19 @@ module Pitle
 
     desc "epub,pdf", "Pick the one filename from duplicate filenames that have different extensions."
     method_option :extension, type: :string, default: "", aliases: "-e"
+    method_option :print0, type: :boolean, aliases: "-0"
     def do()
-      extensions = options[:extension].split(',')
+      extensions = options[:extension].split(",")
 
       Dir.open(Dir.pwd){ |d|
         fileNameOperator = FileNameOperator.new(d.children, extensions)
         origin_filenames = fileNameOperator.pick_files()
 
-        origin_filenames.each { |f| puts f }
+        if options[:print0]
+          print "./#{origin_filenames.join("\0./")}"
+        else
+          origin_filenames.each { |f| puts f }
+        end
       }
     end
   end
