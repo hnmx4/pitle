@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["hnmx4"]
   spec.email         = ["hnmnty@gmail.com"]
 
-  spec.summary       = ""
-  spec.description   = ""
-  spec.homepage      = "http://www.tmanaka.net"
+  spec.summary       = "Pick the one filename from duplicate filenames that have different extensions."
+  spec.description   = "Pick the one filename from duplicate filenames that have different extensions."
+  spec.homepage      = "https://github.com/hnmx4/pitle"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
