@@ -60,18 +60,20 @@ module Pitle
   end
 
   class CLI < Thor
-    desc "hoge", "fuga"
-    def do(extension="epub,pdf,mobi")
-      extensions = extension.split(',')
+    default_command :do
+    default_task :do
+
+    desc "epub,pdf", "Pick the one filename from duplicate filenames that have different extensions."
+    method_option :extension, type: :string, default: "", aliases: "-e"
+    def do()
+      extensions = options[:extension].split(',')
 
       Dir.open(Dir.pwd){ |d|
         fileNameOperator = FileNameOperator.new(d.children, extensions)
         origin_filenames = fileNameOperator.pick_files()
 
-        p origin_filenames
+        origin_filenames.each { |f| puts f }
       }
     end
-
-    default_task :do
   end
 end
