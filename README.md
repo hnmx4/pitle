@@ -26,6 +26,28 @@ For example:
 
     $ pitle -e epub,pdf,mobi
 
+### Command Options
+
+`--extension, -e`
+
+Specify the target extensions. Do not put a space after the colon.
+
+For example:
+
+    $ pitle -e epub,pdf,mobi
+
+`--print0, -0`
+
+Print the full file name, followed by a null character instead of a newline.
+
+For example:
+
+    $ pitle -e epub,pdf,mobi --print0
+
+Advanced usage:
+
+    $ pitle -e epub,pdf,mobi --print0 | xargs -0 -J % cp % ./dst
+
 ## Development
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
